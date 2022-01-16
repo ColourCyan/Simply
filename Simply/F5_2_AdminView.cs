@@ -18,15 +18,7 @@ namespace Simply
         public F5_2_AdminView()
         {
             InitializeComponent();
-
-            if (lbl_Status.Text == "Enrolled")
-            {
-                this.btn_Enroll_Drop.Image = ((System.Drawing.Image)(Properties.Resources.Button_Drop));
-            }
-            else
-            {
-                this.btn_Enroll_Drop.Image = ((System.Drawing.Image)(Properties.Resources.Button_Enrol));
-            }
+            int page = Int32.Parse(lbl_Page.Text);
             //set parent to background
             lbl_MenuType.Parent = pictureBox1;
             lbl_First.Parent = pictureBox1;
@@ -43,7 +35,8 @@ namespace Simply
             btn_Add.Parent = pictureBox1;
             btn_Enroll_Drop.Parent = pictureBox1;
             lbl_Status.Parent = pictureBox1;
-            btn_Search.Parent = pictureBox1;
+            btn_Prev.Parent = pictureBox1;
+            btn_Next.Parent = pictureBox1;
 
             //set backcolor to allow transparency to actual background
             lbl_MenuType.BackColor = Color.Transparent;
@@ -61,7 +54,8 @@ namespace Simply
             btn_Add.BackColor = Color.Transparent;
             btn_Enroll_Drop.BackColor = Color.Transparent;
             lbl_Status.BackColor = Color.Transparent;
-            btn_Search.BackColor = Color.Transparent;
+            btn_Prev.BackColor = Color.Transparent;
+            btn_Next.BackColor = Color.Transparent;
         }
 
         private void F5_2_AdminView_Load(object sender, EventArgs e)
@@ -70,8 +64,6 @@ namespace Simply
 
             DataBase verify = new DataBase();
 
-            //DataTable table = new DataTable();
-
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
             if (lbl_MenuType.Text == "STUDENTS")
@@ -79,18 +71,21 @@ namespace Simply
                 lbl_MenuType.Location = new Point(409, 32);
                 lbl_First.Text = "Full Name:";
                 lbl_Fourth.Text = "Subjects Taken:";
-                MySqlCommand command = new MySqlCommand("SELECT fName, lName, Subject1, ID, EmailAddress, Status from studentform where ID = @id", ViewInfo);
+                MySqlCommand command = new MySqlCommand("SELECT fName, lName, ID, EmailAddress, Subject1, Subject2," +
+                    " Subject3, Status from studentform where ID = @id", ViewInfo);
                 ViewInfo.Open();
-                command.Parameters.AddWithValue("@id", txt_Page.Text);
+                command.Parameters.AddWithValue("@id", lbl_Page.Text);
                 MySqlDataReader row = command.ExecuteReader();
                 while (row.Read())
                 {
                     lbl_Second.Text = row.GetValue(0).ToString();
                     lbl_Third.Text = row.GetValue(1).ToString();
-                    lbl_Fifth.Text = row.GetValue(2).ToString();
-                    txt_Page.Text = row.GetValue(3).ToString();
-                    lbl_Email.Text = row.GetValue(4).ToString();
-                    lbl_Status.Text = row.GetValue(5).ToString();
+                    lbl_Page.Text = row.GetValue(2).ToString();
+                    lbl_Email.Text = row.GetValue(3).ToString();
+                    lbl_Fifth.Text = row.GetValue(4).ToString();
+                    lbl_Sixth.Text = row.GetValue(5).ToString();
+                    lbl_Seventh.Text = row.GetValue(6).ToString();
+                    lbl_Status.Text = row.GetValue(7).ToString();
                 }
                 ViewInfo.Close();
             }
@@ -103,14 +98,14 @@ namespace Simply
                 lbl_Seventh.Hide();
                 MySqlCommand command = new MySqlCommand("SELECT fName, lName, Subject, ID, EmailAddress, Status from teacherform where ID = @id", ViewInfo);
                 ViewInfo.Open();
-                command.Parameters.AddWithValue("@id", txt_Page.Text);
+                command.Parameters.AddWithValue("@id", lbl_Page.Text);
                 MySqlDataReader row = command.ExecuteReader();
                 while (row.Read())
                 {
                     lbl_Second.Text = row.GetValue(0).ToString();
                     lbl_Third.Text = row.GetValue(1).ToString();
                     lbl_Fifth.Text = row.GetValue(2).ToString();
-                    txt_Page.Text = row.GetValue(3).ToString();
+                    lbl_Page.Text = row.GetValue(3).ToString();
                     lbl_Email.Text = row.GetValue(4).ToString();
                     lbl_Status.Text = row.GetValue(5).ToString();
                 }
@@ -128,12 +123,12 @@ namespace Simply
                 lbl_Seventh.Hide();
                 MySqlCommand command = new MySqlCommand("SELECT Subjects, ID, Status from subjectform where ID = @id", ViewInfo);
                 ViewInfo.Open();
-                command.Parameters.AddWithValue("@id", txt_Page.Text);
+                command.Parameters.AddWithValue("@id", lbl_Page.Text);
                 MySqlDataReader row = command.ExecuteReader();
                 while (row.Read())
                 {
                     lbl_Second.Text = row.GetValue(0).ToString();
-                    txt_Page.Text = row.GetValue(1).ToString();
+                    lbl_Page.Text = row.GetValue(1).ToString();
                     lbl_Status.Text = row.GetValue(2).ToString();
                 }
                 ViewInfo.Close();
@@ -161,9 +156,114 @@ namespace Simply
             this.Close();
         }
 
-        private void btn_Search_Click(object sender, EventArgs e)
+        private void btn_Prev_Click(object sender, EventArgs e)
         {
+            int page = Int32.Parse(lbl_Page.Text);
+            if (page > 1)
+            {
+                page--;
+                lbl_Page.Text = page.ToString();
+            }
+            else
+            {
+                string message = "This is the first page!";
+                MessageBox.Show(message);
+            }
             UpdateForm();
+            if (lbl_Status.Text == "Enrolled")
+            {
+                this.btn_Enroll_Drop.Image = ((System.Drawing.Image)(Properties.Resources.Button_Drop));
+            }
+            else
+            {
+                this.btn_Enroll_Drop.Image = ((System.Drawing.Image)(Properties.Resources.Button_Enrol));
+            }
+        }
+
+        private void btn_Next_Click(object sender, EventArgs e)
+        {
+            lbl_MenuType.Text = F3_3_AdminDashboard.Option;
+
+            DataBase verify = new DataBase();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            MySqlDataReader pageCount = null;
+            if (lbl_MenuType.Text == "STUDENTS")
+            {
+                MySqlCommand command = new MySqlCommand("SELECT COUNT(ID) FROM studentform", ViewInfo);
+                ViewInfo.Open();
+                pageCount = command.ExecuteReader();
+                ViewInfo.Close();
+                ViewInfo.Open();
+                int pageCountInt = int.Parse(command.ExecuteScalar().ToString());
+                ViewInfo.Close();
+                int page = Int32.Parse(lbl_Page.Text);
+                if (page < pageCountInt)
+                {
+                    page++;
+                }
+                else
+                {
+                    string message = "This is the last page!";
+                    MessageBox.Show(message);
+                }
+                lbl_Page.Text = page.ToString();
+            }
+            else if (lbl_MenuType.Text == "TEACHERS")
+            {
+                MySqlCommand command = new MySqlCommand("SELECT COUNT(ID) FROM teacherform", ViewInfo);
+                ViewInfo.Open();
+                pageCount = command.ExecuteReader();
+                ViewInfo.Close();
+                ViewInfo.Open();
+                int pageCountInt = int.Parse(command.ExecuteScalar().ToString());
+                ViewInfo.Close();
+                int page = Int32.Parse(lbl_Page.Text);
+                if (page < pageCountInt)
+                {
+                    page++;
+                }
+                else
+                {
+                    string message = "This is the last page!";
+                    MessageBox.Show(message);
+                }
+                lbl_Page.Text = page.ToString();
+            }
+            else if (lbl_MenuType.Text == "SUBJECTS")
+            {
+                MySqlCommand command = new MySqlCommand("SELECT COUNT(ID) FROM subjectform", ViewInfo);
+                ViewInfo.Open();
+                pageCount = command.ExecuteReader();
+                ViewInfo.Close();
+                ViewInfo.Open();
+                int pageCountInt = int.Parse(command.ExecuteScalar().ToString());
+                ViewInfo.Close();
+                int page = Int32.Parse(lbl_Page.Text);
+                if (page < pageCountInt)
+                {
+                    page++;
+                }
+                else
+                {
+                    string message = "This is the last page!";
+                    MessageBox.Show(message);
+                }
+                lbl_Page.Text = page.ToString();
+            }
+            else
+            {
+                string message = "An error occured. Please try again.";
+                MessageBox.Show(message);
+            }
+            UpdateForm();
+            if (lbl_Status.Text == "Enrolled")
+            {
+                this.btn_Enroll_Drop.Image = ((System.Drawing.Image)(Properties.Resources.Button_Drop));
+            }
+            else
+            {
+                this.btn_Enroll_Drop.Image = ((System.Drawing.Image)(Properties.Resources.Button_Enrol));
+            }
         }
 
         private void UpdateForm()
@@ -172,18 +272,20 @@ namespace Simply
 
             if (lbl_MenuType.Text == "STUDENTS")
             {
-                MySqlCommand command = new MySqlCommand("SELECT fName, lName, Subject1, ID, EmailAddress, Status  from studentform where ID = @id", ViewInfo);
+                MySqlCommand command = new MySqlCommand("SELECT fName, lName, ID, EmailAddress, Subject1, Subject2, Subject3, Status  from studentform where ID = @id", ViewInfo);
                 ViewInfo.Open();
-                command.Parameters.AddWithValue("@id", txt_Page.Text);
+                command.Parameters.AddWithValue("@id", lbl_Page.Text);
                 MySqlDataReader row = command.ExecuteReader();
                 while (row.Read())
                 {
                     lbl_Second.Text = row.GetValue(0).ToString();
                     lbl_Third.Text = row.GetValue(1).ToString();
-                    lbl_Fifth.Text = row.GetValue(2).ToString();
-                    txt_Page.Text = row.GetValue(3).ToString();
-                    lbl_Email.Text = row.GetValue(4).ToString();
-                    lbl_Status.Text = row.GetValue(5).ToString();
+                    lbl_Page.Text = row.GetValue(2).ToString();
+                    lbl_Email.Text = row.GetValue(3).ToString();
+                    lbl_Fifth.Text = row.GetValue(4).ToString();
+                    lbl_Sixth.Text = row.GetValue(5).ToString();
+                    lbl_Seventh.Text = row.GetValue(6).ToString();
+                    lbl_Status.Text = row.GetValue(7).ToString();
                 }
                 ViewInfo.Close();
             }
@@ -191,14 +293,14 @@ namespace Simply
             {
                 MySqlCommand command = new MySqlCommand("SELECT fName, lName, Subject, ID, EmailAddress, Status from teacherform where ID = @id", ViewInfo);
                 ViewInfo.Open();
-                command.Parameters.AddWithValue("@id", txt_Page.Text);
+                command.Parameters.AddWithValue("@id", lbl_Page.Text);
                 MySqlDataReader row = command.ExecuteReader();
                 while (row.Read())
                 {
                     lbl_Second.Text = row.GetValue(0).ToString();
                     lbl_Third.Text = row.GetValue(1).ToString();
                     lbl_Fifth.Text = row.GetValue(2).ToString();
-                    txt_Page.Text = row.GetValue(3).ToString();
+                    lbl_Page.Text = row.GetValue(3).ToString();
                     lbl_Email.Text = row.GetValue(4).ToString();
                     lbl_Status.Text = row.GetValue(5).ToString();
                 }
@@ -208,12 +310,12 @@ namespace Simply
             {
                 MySqlCommand command = new MySqlCommand("SELECT Subjects, ID, Status from subjectform where ID = @id", ViewInfo);
                 ViewInfo.Open();
-                command.Parameters.AddWithValue("@id", txt_Page.Text);
+                command.Parameters.AddWithValue("@id", lbl_Page.Text);
                 MySqlDataReader row = command.ExecuteReader();
                 while (row.Read())
                 {
                     lbl_Second.Text = row.GetValue(0).ToString();
-                    txt_Page.Text = row.GetValue(1).ToString();
+                    lbl_Page.Text = row.GetValue(1).ToString();
                     lbl_Status.Text = row.GetValue(2).ToString();
                 }
                 ViewInfo.Close();
@@ -236,7 +338,8 @@ namespace Simply
                     lbl_Status.Text = "Dropped";
                     if (lbl_MenuType.Text == "STUDENTS")
                     {
-                        string query = "update studentform set Status = '" + this.lbl_Status.Text + "', ID = '" + this.txt_Page.Text + "' where ID = @id; ;";
+                        string query = "update studentform set Status = '" + this.lbl_Status.Text + "', ID = '" + this.lbl_Page.Text + 
+                            "' where ID = '" + this.lbl_Page.Text + "';";
                         MySqlConnection creds2 = new MySqlConnection(creds);
                         MySqlCommand senddata = new MySqlCommand(query, creds2);
                         MySqlDataReader ReceiveData;
@@ -250,7 +353,7 @@ namespace Simply
                     }
                     else if (lbl_MenuType.Text == "TEACHERS")
                     {
-                        string query = "update teacherform set Status='" + this.lbl_Status.Text + "', ID = '" + this.txt_Page.Text + "' where ID = @id; ;";
+                        string query = "update teacherform set Status='" + this.lbl_Status.Text + "', ID = '" + this.lbl_Page.Text + "' where ID = '" + this.lbl_Page.Text + "';";
                         MySqlConnection creds2 = new MySqlConnection(creds);
                         MySqlCommand senddata = new MySqlCommand(query, creds2);
                         MySqlDataReader ReceiveData;
@@ -263,7 +366,7 @@ namespace Simply
                     }
                     else if (lbl_MenuType.Text == "SUBJECTS")
                     {
-                        string query = "update subjectform set Status='" + this.lbl_Status.Text + "', ID = '" + this.txt_Page.Text + "' where ID = @id; ;";
+                        string query = "update subjectform set Status='" + this.lbl_Status.Text + "', ID = '" + this.lbl_Page.Text + "' where ID = '" + this.lbl_Page.Text + "';";
                         MySqlConnection creds2 = new MySqlConnection(creds);
                         MySqlCommand senddata = new MySqlCommand(query, creds2);
                         MySqlDataReader ReceiveData;
@@ -290,7 +393,7 @@ namespace Simply
                     lbl_Status.Text = "Enrolled";
                     if (lbl_MenuType.Text == "STUDENTS")
                     {
-                        string query = "update studentform set Status='" + this.lbl_Status.Text + "'; ;";
+                        string query = "update studentform set Status='" + this.lbl_Status.Text + "' where ID = '" + this.lbl_Page.Text + "'; ;";
                         MySqlConnection creds2 = new MySqlConnection(creds);
                         MySqlCommand senddata = new MySqlCommand(query, creds2);
                         MySqlDataReader ReceiveData;
@@ -303,7 +406,7 @@ namespace Simply
                     }
                     else if (lbl_MenuType.Text == "TEACHERS")
                     {
-                        string query = "update teacherform set Status='" + this.lbl_Status.Text + "'; ;";
+                        string query = "update teacherform set Status='" + this.lbl_Status.Text + "' where ID = '" + this.lbl_Page.Text + "'; ;";
                         MySqlConnection creds2 = new MySqlConnection(creds);
                         MySqlCommand senddata = new MySqlCommand(query, creds2);
                         MySqlDataReader ReceiveData;
@@ -316,7 +419,7 @@ namespace Simply
                     }
                     else if (lbl_MenuType.Text == "SUBJECTS")
                     {
-                        string query = "update subjectform set Status='" + this.lbl_Status.Text + "'; ;";
+                        string query = "update subjectform set Status='" + this.lbl_Status.Text + "' where ID = '" + this.lbl_Page.Text + "'; ;";
                         MySqlConnection creds2 = new MySqlConnection(creds);
                         MySqlCommand senddata = new MySqlCommand(query, creds2);
                         MySqlDataReader ReceiveData;

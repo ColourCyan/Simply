@@ -50,7 +50,7 @@ namespace Simply
 
             if (F1_UserSelect.UserType == "STUDENT")
             {
-                MySqlCommand command = new MySqlCommand("SELECT EmailAddress, Password, fName, lName from adminform where EmailAddress = @email", editInfo);
+                MySqlCommand command = new MySqlCommand("SELECT EmailAddress, Password, fName, lName from studentform where EmailAddress = @email", editInfo);
                 editInfo.Open();
                 command.Parameters.AddWithValue("@email", F2_Login.Email);
                 MySqlDataReader row = command.ExecuteReader();
@@ -65,7 +65,7 @@ namespace Simply
             }
             else if (F1_UserSelect.UserType == "TEACHER")
             {
-                MySqlCommand command = new MySqlCommand("SELECT EmailAddress, Password, fName, lName from adminform where EmailAddress = @email", editInfo);
+                MySqlCommand command = new MySqlCommand("SELECT EmailAddress, Password, fName, lName from teacherform where EmailAddress = @email", editInfo);
                 editInfo.Open();
                 command.Parameters.AddWithValue("@email", F2_Login.Email);
                 MySqlDataReader row = command.ExecuteReader();

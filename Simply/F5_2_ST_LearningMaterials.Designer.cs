@@ -34,10 +34,12 @@ namespace Simply
             this.lbl_SubType = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.LearningMaterialsData = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LearningMaterialsData)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -61,6 +63,7 @@ namespace Simply
             this.btn_Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_Back.TabIndex = 25;
             this.btn_Back.TabStop = false;
+            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // lbl_SubType
             // 
@@ -89,29 +92,43 @@ namespace Simply
             // 
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::Simply.Properties.Resources.Button_Download;
-            this.pictureBox3.Location = new System.Drawing.Point(568, 520);
+            this.pictureBox3.Location = new System.Drawing.Point(610, 568);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(111, 50);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 28;
             this.pictureBox3.TabStop = false;
             // 
-            // F5_2_LearningMaterials
+            // LearningMaterialsData
+            // 
+            this.LearningMaterialsData.AllowUserToAddRows = false;
+            this.LearningMaterialsData.AllowUserToDeleteRows = false;
+            this.LearningMaterialsData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LearningMaterialsData.Location = new System.Drawing.Point(365, 154);
+            this.LearningMaterialsData.Name = "LearningMaterialsData";
+            this.LearningMaterialsData.ReadOnly = true;
+            this.LearningMaterialsData.RowTemplate.Height = 25;
+            this.LearningMaterialsData.Size = new System.Drawing.Size(596, 376);
+            this.LearningMaterialsData.TabIndex = 29;
+            // 
+            // F5_2_ST_LearningMaterials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 681);
+            this.Controls.Add(this.LearningMaterialsData);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lbl_SubType);
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "F5_2_LearningMaterials";
+            this.Name = "F5_2_ST_LearningMaterials";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LearningMaterialsData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,5 +141,6 @@ namespace Simply
         private System.Windows.Forms.Label lbl_SubType;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.DataGridView LearningMaterialsData;
     }
 }

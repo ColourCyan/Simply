@@ -38,6 +38,7 @@ namespace Simply
             this.btn_Submit = new System.Windows.Forms.PictureBox();
             this.lbl_NewLink = new System.Windows.Forms.Label();
             this.txt_Link = new System.Windows.Forms.TextBox();
+            this.lbl_Sub = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Button_Subject1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Button_Back)).BeginInit();
@@ -78,6 +79,7 @@ namespace Simply
             // 
             // Button_Back
             // 
+            this.Button_Back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_Back.Image = global::Simply.Properties.Resources.Button_Back;
             this.Button_Back.Location = new System.Drawing.Point(83, 71);
             this.Button_Back.Name = "Button_Back";
@@ -85,6 +87,7 @@ namespace Simply
             this.Button_Back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Button_Back.TabIndex = 27;
             this.Button_Back.TabStop = false;
+            this.Button_Back.Click += new System.EventHandler(this.Button_Back_Click);
             // 
             // lbl_Info
             // 
@@ -102,21 +105,22 @@ namespace Simply
             this.lbl_Link.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_Link.Location = new System.Drawing.Point(394, 244);
             this.lbl_Link.Name = "lbl_Link";
-            this.lbl_Link.Size = new System.Drawing.Size(398, 29);
+            this.lbl_Link.Size = new System.Drawing.Size(78, 29);
             this.lbl_Link.TabIndex = 31;
             this.lbl_Link.TabStop = true;
-            this.lbl_Link.Text = "https://meet.google.com/boj-gxum-znc";
+            this.lbl_Link.Text = "-none-";
             // 
             // btn_Submit
             // 
             this.btn_Submit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Submit.Image = global::Simply.Properties.Resources.Button_Submit;
-            this.btn_Submit.Location = new System.Drawing.Point(592, 501);
+            this.btn_Submit.Location = new System.Drawing.Point(580, 501);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(100, 43);
             this.btn_Submit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_Submit.TabIndex = 32;
             this.btn_Submit.TabStop = false;
+            this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
             // 
             // lbl_NewLink
             // 
@@ -136,11 +140,24 @@ namespace Simply
             this.txt_Link.Size = new System.Drawing.Size(398, 37);
             this.txt_Link.TabIndex = 34;
             // 
-            // F5_1_SubjectDetails
+            // lbl_Sub
+            // 
+            this.lbl_Sub.AutoSize = true;
+            this.lbl_Sub.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Sub.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Sub.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_Sub.Location = new System.Drawing.Point(174, 464);
+            this.lbl_Sub.Name = "lbl_Sub";
+            this.lbl_Sub.Size = new System.Drawing.Size(107, 32);
+            this.lbl_Sub.TabIndex = 35;
+            this.lbl_Sub.Text = "txt_Sub";
+            // 
+            // F5_1_ST_SubjectDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 681);
+            this.Controls.Add(this.lbl_Sub);
             this.Controls.Add(this.txt_Link);
             this.Controls.Add(this.lbl_NewLink);
             this.Controls.Add(this.btn_Submit);
@@ -150,7 +167,7 @@ namespace Simply
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Button_Back);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "F5_1_SubjectDetails";
+            this.Name = "F5_1_ST_SubjectDetails";
             this.Text = "F5_2_SubjectDetails";
             this.Load += new System.EventHandler(this.F5_1_SubjectDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -173,5 +190,6 @@ namespace Simply
         private System.Windows.Forms.PictureBox btn_Submit;
         private System.Windows.Forms.Label lbl_NewLink;
         private System.Windows.Forms.TextBox txt_Link;
+        private System.Windows.Forms.Label lbl_Sub;
     }
 }

@@ -49,6 +49,12 @@ namespace Simply
             this.cmb_Sub3 = new System.Windows.Forms.ComboBox();
             this.lbl_Sub3 = new System.Windows.Forms.Label();
             this.txt_Subject3 = new System.Windows.Forms.TextBox();
+            this.cmb_Teach3 = new System.Windows.Forms.ComboBox();
+            this.lbl_Teach3 = new System.Windows.Forms.Label();
+            this.cmb_Teach2 = new System.Windows.Forms.ComboBox();
+            this.lbl_Teach2 = new System.Windows.Forms.Label();
+            this.cmb_Teach1 = new System.Windows.Forms.ComboBox();
+            this.lbl_Teach1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Submit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -217,8 +223,9 @@ namespace Simply
             this.cmb_Sub1.FormattingEnabled = true;
             this.cmb_Sub1.Location = new System.Drawing.Point(23, 224);
             this.cmb_Sub1.Name = "cmb_Sub1";
-            this.cmb_Sub1.Size = new System.Drawing.Size(316, 23);
+            this.cmb_Sub1.Size = new System.Drawing.Size(135, 23);
             this.cmb_Sub1.TabIndex = 65;
+            this.cmb_Sub1.DropDownClosed += new System.EventHandler(this.cmb_Sub1_DropDownClosed);
             // 
             // cmb_Sub2
             // 
@@ -226,8 +233,9 @@ namespace Simply
             this.cmb_Sub2.FormattingEnabled = true;
             this.cmb_Sub2.Location = new System.Drawing.Point(23, 326);
             this.cmb_Sub2.Name = "cmb_Sub2";
-            this.cmb_Sub2.Size = new System.Drawing.Size(316, 23);
+            this.cmb_Sub2.Size = new System.Drawing.Size(135, 23);
             this.cmb_Sub2.TabIndex = 67;
+            this.cmb_Sub2.DropDownClosed += new System.EventHandler(this.cmb_Sub2_DropDownClosed);
             // 
             // lbl_Sub2
             // 
@@ -248,8 +256,9 @@ namespace Simply
             this.cmb_Sub3.FormattingEnabled = true;
             this.cmb_Sub3.Location = new System.Drawing.Point(23, 427);
             this.cmb_Sub3.Name = "cmb_Sub3";
-            this.cmb_Sub3.Size = new System.Drawing.Size(316, 23);
+            this.cmb_Sub3.Size = new System.Drawing.Size(135, 23);
             this.cmb_Sub3.TabIndex = 69;
+            this.cmb_Sub3.DropDownClosed += new System.EventHandler(this.cmb_Sub3_DropDownClosed);
             // 
             // lbl_Sub3
             // 
@@ -272,11 +281,86 @@ namespace Simply
             this.txt_Subject3.Size = new System.Drawing.Size(513, 45);
             this.txt_Subject3.TabIndex = 70;
             // 
+            // cmb_Teach3
+            // 
+            this.cmb_Teach3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Teach3.FormattingEnabled = true;
+            this.cmb_Teach3.Location = new System.Drawing.Point(217, 427);
+            this.cmb_Teach3.Name = "cmb_Teach3";
+            this.cmb_Teach3.Size = new System.Drawing.Size(135, 23);
+            this.cmb_Teach3.TabIndex = 76;
+            this.cmb_Teach3.DropDownClosed += new System.EventHandler(this.cmb_Teach3_DropDownClosed);
+            // 
+            // lbl_Teach3
+            // 
+            this.lbl_Teach3.AutoSize = true;
+            this.lbl_Teach3.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Teach3.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Teach3.ForeColor = System.Drawing.Color.Black;
+            this.lbl_Teach3.Location = new System.Drawing.Point(217, 382);
+            this.lbl_Teach3.Name = "lbl_Teach3";
+            this.lbl_Teach3.Size = new System.Drawing.Size(143, 33);
+            this.lbl_Teach3.TabIndex = 75;
+            this.lbl_Teach3.Text = "Teacher 3";
+            this.lbl_Teach3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cmb_Teach2
+            // 
+            this.cmb_Teach2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Teach2.FormattingEnabled = true;
+            this.cmb_Teach2.Location = new System.Drawing.Point(217, 326);
+            this.cmb_Teach2.Name = "cmb_Teach2";
+            this.cmb_Teach2.Size = new System.Drawing.Size(135, 23);
+            this.cmb_Teach2.TabIndex = 74;
+            this.cmb_Teach2.DropDownClosed += new System.EventHandler(this.cmb_Teach2_DropDownClosed);
+            // 
+            // lbl_Teach2
+            // 
+            this.lbl_Teach2.AutoSize = true;
+            this.lbl_Teach2.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Teach2.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Teach2.ForeColor = System.Drawing.Color.Black;
+            this.lbl_Teach2.Location = new System.Drawing.Point(217, 281);
+            this.lbl_Teach2.Name = "lbl_Teach2";
+            this.lbl_Teach2.Size = new System.Drawing.Size(143, 33);
+            this.lbl_Teach2.TabIndex = 73;
+            this.lbl_Teach2.Text = "Teacher 2";
+            this.lbl_Teach2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cmb_Teach1
+            // 
+            this.cmb_Teach1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Teach1.FormattingEnabled = true;
+            this.cmb_Teach1.Location = new System.Drawing.Point(217, 224);
+            this.cmb_Teach1.Name = "cmb_Teach1";
+            this.cmb_Teach1.Size = new System.Drawing.Size(135, 23);
+            this.cmb_Teach1.TabIndex = 72;
+            this.cmb_Teach1.DropDownClosed += new System.EventHandler(this.cmb_Teach1_DropDownClosed);
+            // 
+            // lbl_Teach1
+            // 
+            this.lbl_Teach1.AutoSize = true;
+            this.lbl_Teach1.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Teach1.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Teach1.ForeColor = System.Drawing.Color.Black;
+            this.lbl_Teach1.Location = new System.Drawing.Point(217, 179);
+            this.lbl_Teach1.Name = "lbl_Teach1";
+            this.lbl_Teach1.Size = new System.Drawing.Size(143, 33);
+            this.lbl_Teach1.TabIndex = 71;
+            this.lbl_Teach1.Text = "Teacher 1";
+            this.lbl_Teach1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // F5_2_AddAdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 681);
+            this.Controls.Add(this.cmb_Teach3);
+            this.Controls.Add(this.lbl_Teach3);
+            this.Controls.Add(this.cmb_Teach2);
+            this.Controls.Add(this.lbl_Teach2);
+            this.Controls.Add(this.cmb_Teach1);
+            this.Controls.Add(this.lbl_Teach1);
             this.Controls.Add(this.lbl_Email);
             this.Controls.Add(this.txt_Subject3);
             this.Controls.Add(this.cmb_Sub3);
@@ -328,5 +412,11 @@ namespace Simply
         private System.Windows.Forms.ComboBox cmb_Sub3;
         private System.Windows.Forms.Label lbl_Sub3;
         private System.Windows.Forms.TextBox txt_Subject3;
+        private System.Windows.Forms.Label lbl_Teach3;
+        private System.Windows.Forms.ComboBox cmb_Teach2;
+        private System.Windows.Forms.Label lbl_Teach2;
+        private System.Windows.Forms.ComboBox cmb_Teach1;
+        private System.Windows.Forms.Label lbl_Teach1;
+        private System.Windows.Forms.ComboBox cmb_Teach3;
     }
 }

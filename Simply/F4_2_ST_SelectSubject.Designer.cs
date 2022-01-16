@@ -35,6 +35,9 @@ namespace Simply
             this.Button_Subject1 = new System.Windows.Forms.PictureBox();
             this.Button_Subject2 = new System.Windows.Forms.PictureBox();
             this.Button_Subject3 = new System.Windows.Forms.PictureBox();
+            this.lbl_Sub1 = new System.Windows.Forms.Label();
+            this.lbl_Sub2 = new System.Windows.Forms.Label();
+            this.lbl_Sub3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Button_Subject1)).BeginInit();
@@ -87,6 +90,7 @@ namespace Simply
             this.Button_Subject1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Button_Subject1.TabIndex = 26;
             this.Button_Subject1.TabStop = false;
+            this.Button_Subject1.Click += new System.EventHandler(this.Button_Subject1_Click);
             // 
             // Button_Subject2
             // 
@@ -98,6 +102,7 @@ namespace Simply
             this.Button_Subject2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Button_Subject2.TabIndex = 27;
             this.Button_Subject2.TabStop = false;
+            this.Button_Subject2.Click += new System.EventHandler(this.Button_Subject2_Click);
             // 
             // Button_Subject3
             // 
@@ -109,19 +114,63 @@ namespace Simply
             this.Button_Subject3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Button_Subject3.TabIndex = 28;
             this.Button_Subject3.TabStop = false;
+            this.Button_Subject3.Click += new System.EventHandler(this.Button_Subject3_Click);
             // 
-            // F4_2_SelectSubject
+            // lbl_Sub1
+            // 
+            this.lbl_Sub1.AutoSize = true;
+            this.lbl_Sub1.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Sub1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Sub1.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Sub1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_Sub1.Location = new System.Drawing.Point(139, 475);
+            this.lbl_Sub1.Name = "lbl_Sub1";
+            this.lbl_Sub1.Size = new System.Drawing.Size(122, 32);
+            this.lbl_Sub1.TabIndex = 29;
+            this.lbl_Sub1.Text = "txt_Sub1";
+            this.lbl_Sub1.Click += new System.EventHandler(this.lbl_Sub1_Click);
+            // 
+            // lbl_Sub2
+            // 
+            this.lbl_Sub2.AutoSize = true;
+            this.lbl_Sub2.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Sub2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Sub2.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Sub2.Location = new System.Drawing.Point(467, 475);
+            this.lbl_Sub2.Name = "lbl_Sub2";
+            this.lbl_Sub2.Size = new System.Drawing.Size(122, 32);
+            this.lbl_Sub2.TabIndex = 29;
+            this.lbl_Sub2.Text = "txt_Sub2";
+            this.lbl_Sub2.Click += new System.EventHandler(this.lbl_Sub2_Click);
+            // 
+            // lbl_Sub3
+            // 
+            this.lbl_Sub3.AutoSize = true;
+            this.lbl_Sub3.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Sub3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Sub3.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Sub3.Location = new System.Drawing.Point(797, 475);
+            this.lbl_Sub3.Name = "lbl_Sub3";
+            this.lbl_Sub3.Size = new System.Drawing.Size(122, 32);
+            this.lbl_Sub3.TabIndex = 29;
+            this.lbl_Sub3.Text = "txt_Sub3";
+            this.lbl_Sub3.Click += new System.EventHandler(this.lbl_Sub3_Click);
+            // 
+            // F4_2_ST_SelectSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 681);
+            this.Controls.Add(this.lbl_Sub3);
+            this.Controls.Add(this.lbl_Sub2);
+            this.Controls.Add(this.lbl_Sub1);
             this.Controls.Add(this.Button_Subject3);
             this.Controls.Add(this.Button_Subject2);
             this.Controls.Add(this.Button_Subject1);
             this.Controls.Add(this.lbl_SubType);
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "F4_2_SelectSubject";
+            this.Name = "F4_2_ST_SelectSubject";
             this.Text = "F5_1_SubjectMeetingsMenu";
             this.Load += new System.EventHandler(this.F4_2_SelectSubject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -142,5 +191,8 @@ namespace Simply
         private System.Windows.Forms.PictureBox Button_Subject1;
         private System.Windows.Forms.PictureBox Button_Subject2;
         private System.Windows.Forms.PictureBox Button_Subject3;
+        private System.Windows.Forms.Label lbl_Sub1;
+        private System.Windows.Forms.Label lbl_Sub2;
+        private System.Windows.Forms.Label lbl_Sub3;
     }
 }
