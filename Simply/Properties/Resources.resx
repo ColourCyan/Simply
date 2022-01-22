@@ -118,38 +118,26 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Background_Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Background_Login1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Button_Subjects" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Subjects.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Button_Profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Global_MouseLeave_Backbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Global_MouseLeave_Backbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Button_Quizzes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Quizzes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Button_Subject2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Subject2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Overlay_Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Overlay_Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Button_LearningMaterials" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_LearningMaterials.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Profile_placeholder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Profile_placeholder1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Button_Students" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button_Students.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Button_SubBlank" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_SubBlank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Button_Profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Button_Back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Button_Submit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Submit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Button_Subject3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Subject3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Global_MouseLeave_Backbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Global_MouseLeave_Backbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_Subject2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Subject2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Button_Drop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button_Drop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,46 +145,70 @@
   <data name="Button_Download" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button_Download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Profile_placeholder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Profile_placeholder1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Button_Logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Button_Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Button_manual" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_manual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Button_Enrol" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Enrol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Button_View" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button_View.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Button_Submit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Submit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Background_Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Background_Login1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Button_Teachers" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Teachers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Button_Subject3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Subject3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_LearningMaterials" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_LearningMaterials.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_SubBlank" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_SubBlank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_Back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_Upload" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Upload.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Button_SubjectMeetings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button_SubjectMeetings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Background_Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Background_Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Button_Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_View1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_View.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_Enrol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Enrol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_Quizzes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Quizzes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Button_Subject1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button_Subject1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Button_Subjects" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Subjects.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Global_MouseLeave_Nextbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Global_MouseLeave_Nextbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Background_Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Background_Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Overlay_Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Overlay_Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_manual" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_manual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_Teachers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Teachers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Button_Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button_Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_Logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_Hide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Hide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

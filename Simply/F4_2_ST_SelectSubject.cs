@@ -208,7 +208,7 @@ namespace Simply
             }
             else
             {
-                string message = "An error occured. Please try again.";
+                string message = "You have no subject for this button.";
                 MessageBox.Show(message);
             }
         }

@@ -12,6 +12,7 @@ namespace Simply
     public partial class F5_1_ST_SubjectDetails : Form
     {
         MySqlConnection ViewInfo = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=simply;");
+        MySqlConnection ViewInfo2 = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=simply;");
         public static string creds = "datasource=localhost;username=root;password=;database=simply;";
 
         public F5_1_ST_SubjectDetails()
@@ -41,67 +42,85 @@ namespace Simply
 
         private void F5_1_SubjectDetails_Load(object sender, EventArgs e)
         {
+            string Subject1;
+            string Subject2;
+            string Subject3;
+            string Teacher1;
+            string Teacher2;
+            string Teacher3;
+
             this.lbl_Sub.Text = F4_2_ST_SelectSubject.Subject;
             if (F1_UserSelect.UserType == "STUDENT")
             {
-                string Query = "SELECT * FROM studentform";
-                MySqlConnection conDataBase = new MySqlConnection(creds);
-                MySqlCommand cmdDataBase = new MySqlCommand(Query, conDataBase);
-                MySqlDataReader MyReader;
-                conDataBase.Open();
-                MyReader = cmdDataBase.ExecuteReader();
-                while (MyReader.Read())
+                MySqlCommand command = new MySqlCommand("SELECT Subject1, Subject2, Subject3, Teacher1, Teacher2, Teacher3 from studentform", ViewInfo);
+                ViewInfo.Open();
+                MySqlDataReader row = command.ExecuteReader();
+                while (row.Read())
                 {
-                    string Subject1 = MyReader.GetString("Subject1");
-                    string Subject2 = MyReader.GetString("Subject2");
-                    string Subject3 = MyReader.GetString("Subject3");
-                    string Teacher1 = MyReader.GetString("Teacher1");
-                    string Teacher2 = MyReader.GetString("Teacher2");
-                    string Teacher3 = MyReader.GetString("Teacher3");
+                    Subject1 = row.GetValue(0).ToString();
+                    Subject2 = row.GetValue(1).ToString();
+                    Subject3 = row.GetValue(2).ToString();
+                    Teacher1 = row.GetValue(3).ToString();
+                    Teacher2 = row.GetValue(4).ToString();
+                    Teacher3 = row.GetValue(5).ToString();
+
                     if (F4_2_ST_SelectSubject.Subject == Subject1)
                     {
-                        MySqlCommand command2 = new MySqlCommand("SELECT GLink from teacherform where EmailAddress = @email", ViewInfo);
-                        ViewInfo.Open();
+                        MySqlCommand command2 = new MySqlCommand("SELECT GLink, fName, lName from teacherform where EmailAddress = @email", ViewInfo2);
+                        ViewInfo2.Open();
                         command2.Parameters.AddWithValue("@email", Teacher1);
                         MySqlDataReader row2 = command2.ExecuteReader();
                         while (row2.Read())
                         {
                             lbl_Link.Text = row2.GetValue(0).ToString();
+                            string fName = row2.GetValue(1).ToString();
+                            string lName = row2.GetValue(2).ToString();
+                            lbl_NewLink.Text = "Teacher: " + fName + " " + lName;
                         }
+                        ViewInfo2.Close();
                     }
                     else if (F4_2_ST_SelectSubject.Subject == Subject2)
                     {
-                        MySqlCommand command2 = new MySqlCommand("SELECT GLink from teacherform where EmailAddress = @email", ViewInfo);
-                        ViewInfo.Open();
+                        MySqlCommand command2 = new MySqlCommand("SELECT GLink, fName, lName from teacherform where EmailAddress = @email", ViewInfo2);
+                        ViewInfo2.Open();
                         command2.Parameters.AddWithValue("@email", Teacher2);
                         MySqlDataReader row2 = command2.ExecuteReader();
                         while (row2.Read())
                         {
                             lbl_Link.Text = row2.GetValue(0).ToString();
+                            string fName = row2.GetValue(1).ToString();
+                            string lName = row2.GetValue(2).ToString();
+                            lbl_NewLink.Text = "Teacher: " + fName + " " + lName;
                         }
+                        ViewInfo2.Close();
                     }
                     else if (F4_2_ST_SelectSubject.Subject == Subject3)
                     {
-                        MySqlCommand command2 = new MySqlCommand("SELECT GLink from teacherform where EmailAddress = @email", ViewInfo);
-                        ViewInfo.Open();
+                        MySqlCommand command2 = new MySqlCommand("SELECT GLink, fName, lName from teacherform where EmailAddress = @email", ViewInfo2);
+                        ViewInfo2.Open();
                         command2.Parameters.AddWithValue("@email", Teacher3);
                         MySqlDataReader row2 = command2.ExecuteReader();
                         while (row2.Read())
                         {
                             lbl_Link.Text = row2.GetValue(0).ToString();
+                            string fName = row2.GetValue(1).ToString();
+                            string lName = row2.GetValue(2).ToString();
+                            lbl_NewLink.Text = "Teacher: " + fName + " " + lName;
                         }
+                        ViewInfo2.Close();
                     }
-                    else
-                    {
-                        string message = "An error occured. Please try again.";
-                        MessageBox.Show(message);
-                    }
+                    //else
+                    //{
+                    //    string message = "An error occured. Please try again.";
+                    //    MessageBox.Show(message);
+                    //}
                 }
                 ViewInfo.Close();
                 lbl_Info.Text = "GMeet Link:";
                 lbl_Info.Location = new Point(394, 304);
                 lbl_Link.Location = new Point(394, 350);
-                lbl_NewLink.Hide();
+                lbl_NewLink.Show();
+                lbl_NewLink.Location = new Point(394, 390);
                 txt_Link.Hide();
                 btn_Submit.Hide();
             }

@@ -13,7 +13,7 @@ namespace Simply
     {
         MySqlConnection ViewInfo = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=simply;");
         public static string creds = "datasource=localhost;username=root;password=;database=simply;";
-        public static string Email = "";
+        public static string ID = "";
 
         public F5_2_AdminView()
         {
@@ -37,6 +37,8 @@ namespace Simply
             lbl_Status.Parent = pictureBox1;
             btn_Prev.Parent = pictureBox1;
             btn_Next.Parent = pictureBox1;
+            lbl_Page.Parent = pictureBox1;
+            lbl_QS.Parent = pictureBox1;
 
             //set backcolor to allow transparency to actual background
             lbl_MenuType.BackColor = Color.Transparent;
@@ -56,11 +58,30 @@ namespace Simply
             lbl_Status.BackColor = Color.Transparent;
             btn_Prev.BackColor = Color.Transparent;
             btn_Next.BackColor = Color.Transparent;
+            lbl_Page.BackColor = Color.Transparent;
+            lbl_QS.BackColor = Color.Transparent;
         }
 
         private void F5_2_AdminView_Load(object sender, EventArgs e)
         {
             lbl_MenuType.Text = F3_3_AdminDashboard.Option;
+            if (lbl_MenuType.Text == "SUBJECTS")
+            {
+                FillComboQSSubjects();
+            }
+            else if (lbl_MenuType.Text == "TEACHERS")
+            {
+                FillComboQSTeachers();
+            }
+            else if (lbl_MenuType.Text == "STUDENTS")
+            {
+                FillComboQSStudents();
+            }
+            else
+            {
+                string message = "An error occured. Please try again.";
+                MessageBox.Show(message);
+            }
 
             DataBase verify = new DataBase();
 
@@ -162,6 +183,14 @@ namespace Simply
             if (page > 1)
             {
                 page--;
+                if (page > 9)
+                {
+                    lbl_Page.Location = new Point(483, 589);
+                }
+                else
+                {
+                    lbl_Page.Location = new Point(490, 589);
+                }
                 lbl_Page.Text = page.ToString();
             }
             else
@@ -200,6 +229,14 @@ namespace Simply
                 if (page < pageCountInt)
                 {
                     page++;
+                    if (page > 9)
+                    {
+                        lbl_Page.Location = new Point(483, 589);
+                    }
+                    else
+                    {
+                        lbl_Page.Location = new Point(490, 589);
+                    }
                 }
                 else
                 {
@@ -221,6 +258,14 @@ namespace Simply
                 if (page < pageCountInt)
                 {
                     page++;
+                    if (page > 9)
+                    {
+                        lbl_Page.Location = new Point(483, 589);
+                    }
+                    else
+                    {
+                        lbl_Page.Location = new Point(490, 589);
+                    }
                 }
                 else
                 {
@@ -242,6 +287,14 @@ namespace Simply
                 if (page < pageCountInt)
                 {
                     page++;
+                    if (page > 9)
+                    {
+                        lbl_Page.Location = new Point(483, 589);
+                    }
+                    else
+                    {
+                        lbl_Page.Location = new Point(490, 589);
+                    }
                 }
                 else
                 {
@@ -269,10 +322,19 @@ namespace Simply
         private void UpdateForm()
         {
             lbl_MenuType.Text = F3_3_AdminDashboard.Option;
-
+            int page = Int32.Parse(lbl_Page.Text);
+            if (page > 9)
+            {
+                lbl_Page.Location = new Point(483, 589);
+            }
+            else
+            {
+                lbl_Page.Location = new Point(490, 589);
+            }
             if (lbl_MenuType.Text == "STUDENTS")
             {
-                MySqlCommand command = new MySqlCommand("SELECT fName, lName, ID, EmailAddress, Subject1, Subject2, Subject3, Status  from studentform where ID = @id", ViewInfo);
+                ViewInfo.Close();
+                MySqlCommand command = new MySqlCommand("SELECT fName, lName, ID, EmailAddress, Subject1, Subject2, Subject3, Status from studentform where ID = @id", ViewInfo);
                 ViewInfo.Open();
                 command.Parameters.AddWithValue("@id", lbl_Page.Text);
                 MySqlDataReader row = command.ExecuteReader();
@@ -291,6 +353,7 @@ namespace Simply
             }
             else if (lbl_MenuType.Text == "TEACHERS")
             {
+                ViewInfo.Close();
                 MySqlCommand command = new MySqlCommand("SELECT fName, lName, Subject, ID, EmailAddress, Status from teacherform where ID = @id", ViewInfo);
                 ViewInfo.Open();
                 command.Parameters.AddWithValue("@id", lbl_Page.Text);
@@ -436,6 +499,111 @@ namespace Simply
                         MessageBox.Show(message);
                     }
                 }
+            }
+        }
+
+        public void FillComboQSSubjects()
+        {
+            string Query = "SELECT * FROM subjectform";
+            MySqlConnection conDataBase = new MySqlConnection(creds);
+            MySqlCommand cmdDataBase = new MySqlCommand(Query, conDataBase);
+            MySqlDataReader MyReader;
+            conDataBase.Open();
+            MyReader = cmdDataBase.ExecuteReader();
+            cmb_QS.Items.Add("None");
+            while (MyReader.Read())
+            {
+                string Subjects = MyReader.GetString("Subjects");
+                cmb_QS.Items.Add(Subjects);
+            }
+        }
+
+        public void FillComboQSTeachers()
+        {
+            string Query = "SELECT * FROM teacherform";
+            MySqlConnection conDataBase = new MySqlConnection(creds);
+            MySqlCommand cmdDataBase = new MySqlCommand(Query, conDataBase);
+            MySqlDataReader MyReader;
+            conDataBase.Open();
+            MyReader = cmdDataBase.ExecuteReader();
+            cmb_QS.Items.Add("None");
+            while (MyReader.Read())
+            {
+                string email = MyReader.GetString("EmailAddress");
+                cmb_QS.Items.Add(email);
+            }
+        }
+        
+        public void FillComboQSStudents()
+        {
+            string Query = "SELECT * FROM studentform";
+            MySqlConnection conDataBase = new MySqlConnection(creds);
+            MySqlCommand cmdDataBase = new MySqlCommand(Query, conDataBase);
+            MySqlDataReader MyReader;
+            conDataBase.Open();
+            MyReader = cmdDataBase.ExecuteReader();
+            cmb_QS.Items.Add("None");
+            while (MyReader.Read())
+            {
+                string email = MyReader.GetString("EmailAddress");
+                cmb_QS.Items.Add(email);
+            }
+        }
+
+        private void cmb_QS_DropDownClosed(object sender, EventArgs e)
+        {
+            if (lbl_MenuType.Text == "SUBJECTS")
+            {
+                string Query = "SELECT * FROM subjectform WHERE Subjects = '" + this.cmb_QS.Text + "';";
+                MySqlConnection conDataBase = new MySqlConnection(creds);
+                MySqlCommand cmdDataBase = new MySqlCommand(Query, conDataBase);
+                MySqlDataReader MyReader;
+                conDataBase.Open();
+                MyReader = cmdDataBase.ExecuteReader();
+                while (MyReader.Read())
+                {
+                    int page = MyReader.GetInt32("ID");
+                    lbl_Page.Text = page.ToString();
+                    UpdateForm();
+                }
+                conDataBase.Close();
+            }
+            else if (lbl_MenuType.Text == "TEACHERS")
+            {
+                string Query = "SELECT * FROM teacherform WHERE EmailAddress = '" + this.cmb_QS.Text + "';";
+                MySqlConnection conDataBase = new MySqlConnection(creds);
+                MySqlCommand cmdDataBase = new MySqlCommand(Query, conDataBase);
+                MySqlDataReader MyReader;
+                conDataBase.Open();
+                MyReader = cmdDataBase.ExecuteReader();
+                while (MyReader.Read())
+                {
+                    int page = MyReader.GetInt32("ID");
+                    lbl_Page.Text = page.ToString();
+                    UpdateForm();
+                }
+                conDataBase.Close();
+            }
+            else if (lbl_MenuType.Text == "STUDENTS")
+            {
+                string Query = "SELECT * FROM studentform WHERE EmailAddress = '" + this.cmb_QS.Text + "';";
+                MySqlConnection conDataBase = new MySqlConnection(creds);
+                MySqlCommand cmdDataBase = new MySqlCommand(Query, conDataBase);
+                MySqlDataReader MyReader;
+                conDataBase.Open();
+                MyReader = cmdDataBase.ExecuteReader();
+                while (MyReader.Read())
+                {
+                    int page = MyReader.GetInt32("ID");
+                    lbl_Page.Text = page.ToString();
+                    UpdateForm();
+                }
+                conDataBase.Close();
+            }
+            else
+            {
+                string message = "An error occured. Please try again.";
+                MessageBox.Show(message);
             }
         }
     }

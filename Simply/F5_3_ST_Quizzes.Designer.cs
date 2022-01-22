@@ -29,27 +29,38 @@ namespace Simply
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btn_Delete = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbl_SubType = new System.Windows.Forms.Label();
             this.btn_Back = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.QuizData = new System.Windows.Forms.DataGridView();
+            this.btn_Download = new System.Windows.Forms.PictureBox();
+            this.btn_Upload = new System.Windows.Forms.PictureBox();
+            this.btn_View = new System.Windows.Forms.PictureBox();
+            this.btn_Hide = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Delete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QuizData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Download)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Upload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Hide)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox3
+            // btn_Delete
             // 
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = global::Simply.Properties.Resources.Button_Download;
-            this.pictureBox3.Location = new System.Drawing.Point(568, 520);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(111, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 33;
-            this.pictureBox3.TabStop = false;
+            this.btn_Delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Delete.Image = global::Simply.Properties.Resources.Button_Delete;
+            this.btn_Delete.Location = new System.Drawing.Point(685, 568);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(111, 50);
+            this.btn_Delete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_Delete.TabIndex = 33;
+            this.btn_Delete.TabStop = false;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // pictureBox2
             // 
@@ -97,22 +108,95 @@ namespace Simply
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
             // 
+            // QuizData
+            // 
+            this.QuizData.AllowUserToAddRows = false;
+            this.QuizData.AllowUserToDeleteRows = false;
+            this.QuizData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.QuizData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.QuizData.Location = new System.Drawing.Point(365, 154);
+            this.QuizData.Name = "QuizData";
+            this.QuizData.ReadOnly = true;
+            this.QuizData.RowTemplate.Height = 25;
+            this.QuizData.Size = new System.Drawing.Size(596, 376);
+            this.QuizData.TabIndex = 34;
+            this.QuizData.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.QuizData_CellMouseClick);
+            // 
+            // btn_Download
+            // 
+            this.btn_Download.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Download.Image = global::Simply.Properties.Resources.Button_Download;
+            this.btn_Download.Location = new System.Drawing.Point(526, 568);
+            this.btn_Download.Name = "btn_Download";
+            this.btn_Download.Size = new System.Drawing.Size(111, 50);
+            this.btn_Download.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_Download.TabIndex = 35;
+            this.btn_Download.TabStop = false;
+            this.btn_Download.Click += new System.EventHandler(this.btn_Download_Click);
+            // 
+            // btn_Upload
+            // 
+            this.btn_Upload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Upload.Image = global::Simply.Properties.Resources.Button_Upload;
+            this.btn_Upload.Location = new System.Drawing.Point(847, 568);
+            this.btn_Upload.Name = "btn_Upload";
+            this.btn_Upload.Size = new System.Drawing.Size(111, 50);
+            this.btn_Upload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_Upload.TabIndex = 36;
+            this.btn_Upload.TabStop = false;
+            this.btn_Upload.Click += new System.EventHandler(this.btn_Upload_Click);
+            // 
+            // btn_View
+            // 
+            this.btn_View.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_View.Image = global::Simply.Properties.Resources.Button_View1;
+            this.btn_View.Location = new System.Drawing.Point(365, 568);
+            this.btn_View.Name = "btn_View";
+            this.btn_View.Size = new System.Drawing.Size(111, 50);
+            this.btn_View.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_View.TabIndex = 37;
+            this.btn_View.TabStop = false;
+            this.btn_View.Click += new System.EventHandler(this.btn_View_Click);
+            // 
+            // btn_Hide
+            // 
+            this.btn_Hide.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Hide.Image = global::Simply.Properties.Resources.Button_Hide;
+            this.btn_Hide.Location = new System.Drawing.Point(365, 568);
+            this.btn_Hide.Name = "btn_Hide";
+            this.btn_Hide.Size = new System.Drawing.Size(111, 50);
+            this.btn_Hide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_Hide.TabIndex = 38;
+            this.btn_Hide.TabStop = false;
+            this.btn_Hide.Click += new System.EventHandler(this.btn_Hide_Click);
+            // 
             // F5_3_ST_Quizzes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 681);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.btn_Hide);
+            this.Controls.Add(this.btn_View);
+            this.Controls.Add(this.btn_Upload);
+            this.Controls.Add(this.btn_Download);
+            this.Controls.Add(this.QuizData);
+            this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lbl_SubType);
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.pictureBox1);
             this.Name = "F5_3_ST_Quizzes";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.Load += new System.EventHandler(this.F5_3_ST_Quizzes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Delete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QuizData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Download)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Upload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Hide)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,10 +204,15 @@ namespace Simply
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox btn_Delete;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lbl_SubType;
         private System.Windows.Forms.PictureBox btn_Back;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView QuizData;
+        private System.Windows.Forms.PictureBox btn_Download;
+        private System.Windows.Forms.PictureBox btn_Upload;
+        private System.Windows.Forms.PictureBox btn_View;
+        private System.Windows.Forms.PictureBox btn_Hide;
     }
 }

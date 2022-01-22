@@ -47,6 +47,8 @@ namespace Simply
             this.lbl_Page = new System.Windows.Forms.Label();
             this.btn_Prev = new System.Windows.Forms.PictureBox();
             this.btn_Next = new System.Windows.Forms.PictureBox();
+            this.cmb_QS = new System.Windows.Forms.ComboBox();
+            this.lbl_QS = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Add)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Back)).BeginInit();
@@ -278,11 +280,36 @@ namespace Simply
             this.btn_Next.TabStop = false;
             this.btn_Next.Click += new System.EventHandler(this.btn_Next_Click);
             // 
+            // cmb_QS
+            // 
+            this.cmb_QS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_QS.FormattingEnabled = true;
+            this.cmb_QS.Location = new System.Drawing.Point(827, 202);
+            this.cmb_QS.Name = "cmb_QS";
+            this.cmb_QS.Size = new System.Drawing.Size(225, 23);
+            this.cmb_QS.TabIndex = 54;
+            this.cmb_QS.DropDownClosed += new System.EventHandler(this.cmb_QS_DropDownClosed);
+            // 
+            // lbl_QS
+            // 
+            this.lbl_QS.AutoSize = true;
+            this.lbl_QS.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_QS.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_QS.ForeColor = System.Drawing.Color.Black;
+            this.lbl_QS.Location = new System.Drawing.Point(827, 160);
+            this.lbl_QS.Name = "lbl_QS";
+            this.lbl_QS.Size = new System.Drawing.Size(189, 33);
+            this.lbl_QS.TabIndex = 55;
+            this.lbl_QS.Text = "Quick Search";
+            this.lbl_QS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // F5_2_AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 681);
+            this.Controls.Add(this.lbl_QS);
+            this.Controls.Add(this.cmb_QS);
             this.Controls.Add(this.btn_Next);
             this.Controls.Add(this.btn_Prev);
             this.Controls.Add(this.lbl_Page);
@@ -336,5 +363,7 @@ namespace Simply
         private System.Windows.Forms.PictureBox btn_Prev;
         private System.Windows.Forms.PictureBox btn_Next;
         private System.Windows.Forms.Label lbl_Page;
+        private System.Windows.Forms.ComboBox cmb_QS;
+        private System.Windows.Forms.Label lbl_QS;
     }
 }
